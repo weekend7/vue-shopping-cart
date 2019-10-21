@@ -28,7 +28,7 @@
           <img class="navbar-brand-logo" src="/logo.png"></a>
       </div>
       <div class="navbar-right-container" style="display: flex;">
-        <a href="https://www.imooc.com/u/1343480" target="_blank" class="navbar-link">河畔一角</a>
+        <a href="https://www.imooc.com/u/1343480" target="_blank" class="navbar-link">weekend</a>
         <a class="navbar-link navbar-cart-link" href="/">
           <!-- 定义svg图标，引用上面的symbol -->
           <svg class="navbar-cart-logo">

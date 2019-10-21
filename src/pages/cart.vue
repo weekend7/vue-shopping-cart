@@ -1,6 +1,7 @@
 <template>
-  <div>
-        <!-- 购物车商品内容 -->
+<div>
+  <nav-header></nav-header>
+  <!-- 购物车商品内容 -->
   <div class="nav-breadcrumb-wrap">
     <div class="container">
       <nav class="nav-breadcrumb">
@@ -123,14 +124,15 @@
         </div>
       </div>
     </div>
+    <nav-footer></nav-footer>
   </div>
-  </div>
+</div>
 </template>
 
 <script>
 import NavHeader from '../components/Header.vue';
-import Footer from '../components/Footer.vue';
-import Modal from '../components/Modal.vue';
+import NavFooter from '../components/Footer.vue';
+// import Modal from './../components/Modal.vue';
 
 export default {
   name: 'cart',
@@ -140,7 +142,7 @@ export default {
   components: {
     NavHeader,
     NavFooter,
-    Modal,
+    // Modal,
   },
 };
 </script>

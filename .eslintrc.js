@@ -22,7 +22,7 @@ module.exports = {
   },
 
   'extends': [
-    'plugin:vue/recommended',
+    'plugin:vue/essential',
     '@vue/airbnb'
   ]
 };
