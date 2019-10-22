@@ -89,7 +89,7 @@
               </div>
               <div class="cart-tab-5">
                 <div class="cart-item-opration">
-                  <a href="javascript:;" class="item-edit-btn">
+                  <a href="javascript:;" class="item-edit-btn" @click="delCartConfirm(item)">
                     <svg class="icon icon-del">
                       <use xlink:href="#icon-del"></use>
                     </svg>
@@ -125,6 +125,15 @@
       </div>
     </div>
     <nav-footer></nav-footer>
+    <modal :mdShow="modalConfirm" @close="closeModal">
+      <template v-slot:message>
+        <p>你确认要删除此条数据吗?</p>
+      </template>
+      <template v-slot:btnGroup>
+        <a class="btn btn--m" href="javascript:;" @click="delCart">确认</a>
+        <a class="btn btn--m btn--red" href="javascript:;" @click="closeModal">关闭</a>
+      </template>
+    </modal>
   </div>
 </div>
 </template>
@@ -132,19 +141,21 @@
 <script>
 import NavHeader from '../components/Header.vue';
 import NavFooter from '../components/Footer.vue';
-// import Modal from './../components/Modal.vue';
+import Modal from './../components/Modal.vue';
 
 export default {
   name: 'cart',
   data() {
     return {
+      modalConfirm: false, // 弹框显示属性
+      delItem: '', // 准备删除的对象
       cartList: []
     };
   },
   components: {
     NavHeader,
     NavFooter,
-    // Modal,
+    Modal,
   },
   mounted() {
     this.init(); // 初始化购物车列表
@@ -173,7 +184,25 @@ export default {
       }else {
         item.checked =! item.checked
       }
-    }
+    },
+    // 删除数据确认弹框
+    delCartConfirm(item) {
+      this.delItem = item;
+      this.modalConfirm = true;
+    },
+    closeModal() {
+      this.modalConfirm = false;
+    },
+    // 删除购物车数据
+    delCart() {
+      let delItem = this.delItem;
+      this.cartList.forEach((item,index)=>{
+        if(delItem.productId == item.productId){
+          this.cartList.splice(index,1);
+          this.modalConfirm = false;
+        }
+      });
+    },
   },
 };
 </script>
