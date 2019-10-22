@@ -77,9 +77,9 @@
                 <div class="item-quantity">
                   <div class="select-self select-self-open">
                     <div class="select-self-area">
-                      <a class="input-sub" @click="editCart('minus', item)">-</a>
+                      <a class="input-sub" @click="editCart('minus',item)">-</a>
                       <span class="select-ipt">{{item.productNum}}</span>
-                      <a class="input-add" @click="editCart('add', item)">+</a>
+                      <a class="input-add" @click="editCart('add',item)">+</a>
                     </div>
                   </div>
                 </div>
@@ -151,12 +151,12 @@ export default {
   },
   filters: {
     currency(value) {
-      if(!value) return 0.00;
-      return '¥' + toFixed(2) + '元'
+      if(!value)return 0.00;
+      return '¥' + value.toFixed(2) + '元';
     }
   },
   methods: {
-    // 初始化购物车列表数据
+    // 初始化购物车列表
     init() {
       this.axios.get('../mock/cart.json').then((response) => {
         console.log(response);
@@ -170,10 +170,10 @@ export default {
         item.productNum ++;
       }else if(type == 'minus') {
         item.productNum --;
-      }else{
+      }else {
         item.checked =! item.checked
       }
-    },
+    }
   },
 };
 </script>
