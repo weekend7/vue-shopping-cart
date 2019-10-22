@@ -104,8 +104,8 @@
         <div class="cart-foot-inner">
           <div class="cart-foot-l">
             <div class="item-all-check">
-              <a href="javascipt:;">
-                <span class="checkbox-btn item-check-btn check">
+              <a href="javascipt:;" @click="toggleCheckAll">
+                <span class="checkbox-btn item-check-btn" v-bind:class="{'check':checkAllFlag}">
                   <svg class="icon icon-ok">
                     <use xlink:href="#icon-ok" /></svg>
                 </span>
@@ -160,6 +160,14 @@ export default {
   mounted() {
     this.init(); // 初始化购物车列表
   },
+  computed: {
+    checkAllFlag() {
+      // 当数组中所有对象都返回true的时候，我们整体才会返回true
+      return this.cartList.every((item)=>{
+        return item.checked;
+      })
+    },
+  },
   filters: {
     currency(value) {
       if(!value)return 0.00;
@@ -201,6 +209,13 @@ export default {
           this.cartList.splice(index,1);
           this.modalConfirm = false;
         }
+      });
+    },
+    // 全选和反选
+    toggleCheckAll() {
+      let flag = !this.checkAllFlag;
+      this.cartList.forEach((item)=>{
+        item.checked = flag;
       });
     },
   },
