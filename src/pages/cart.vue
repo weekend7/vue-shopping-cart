@@ -203,10 +203,12 @@ export default {
     editCart(type,item) {
       if(type == 'add') {
         item.productNum ++;
-      }else if(type == 'minus') {
+      }else if(type == 'minus' && item.productNum > 1) {
         item.productNum --;
-      }else {
-        item.checked =! item.checked
+      }else if (type == 'minus' && item.productNum == 1){
+        item.productNum = 1;
+      }else{
+        item.checked =! item.checked ;
       }
     },
     // 删除数据确认弹框

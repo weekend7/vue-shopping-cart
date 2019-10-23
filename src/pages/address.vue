@@ -100,7 +100,7 @@
             </div>
 
             <div class="shipping-addr-more">
-              <a class="addr-more-btn up-down-btn" href="javascript:;" @click="expand()" :class="{'open':limit>3}">
+              <a class="addr-more-btn up-down-btn" href="javascript:;" @click="expand" :class="{'open':limit>3}">
                 查看更多
                 <i class="i-up-down">
                   <i class="i-up-down-l"></i>
@@ -197,7 +197,7 @@ export default {
         if(addressId == item.addressId){
           item.isDefault = true;
         }else {
-          item.isDefault = false;
+          item.isDefault =false;
         }
       });
     },
