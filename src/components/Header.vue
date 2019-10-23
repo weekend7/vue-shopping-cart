@@ -25,10 +25,10 @@
     <div class="navbar">
       <div class="navbar-left-container">
         <a href="/">
-          <img class="navbar-brand-logo" src="/logo.png"></a>
+          <img class="navbar-brand-logo" src="/logo-b.png"></a>
       </div>
       <div class="navbar-right-container" style="display: flex;">
-        <a href="https://www.imooc.com/u/1343480" target="_blank" class="navbar-link">weekend</a>
+        <a href="https://github.com/weekend7" target="_blank" class="navbar-link">weekend</a>
         <a class="navbar-link navbar-cart-link" href="/">
           <!-- 定义svg图标，引用上面的symbol -->
           <svg class="navbar-cart-logo">
