@@ -1,4 +1,5 @@
-# freemall
+# vue-shopping-cart
+ 利用vue框架打造购车页面和地址选配页面
 
 ## Project setup
 ```
